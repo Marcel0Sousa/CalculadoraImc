@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">calculadoraimc</string>
+    <string name="txt_peso">Digite seu peso Ex: 70.00</string>
+    <string name="txt_altura">Digite sua altura Ex: 1.75</string>
 </resources>
