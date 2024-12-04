@@ -1,10 +1,11 @@
 package com.comunidadedevspace.imc
 
-import android.content.DialogInterface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 
 class MainActivity : AppCompatActivity() {
@@ -20,18 +21,29 @@ class MainActivity : AppCompatActivity() {
         btnCalcular.setOnClickListener {
 
 
-            val peso = edtPeso.text.toString().toFloat()
-            val altura = edtAltura.text.toString().toFloat()
+            val pesoStr: String = edtPeso.text.toString()
+            val alturaStr: String = edtAltura.text.toString()
 
-            val altura2 = altura * altura
-            val resultado = peso / altura2
+            if (pesoStr.isEmpty() || alturaStr.isEmpty()
+            ) {
+                Snackbar.make(edtPeso, "Preencha todos os campos", Snackbar.LENGTH_LONG).show()
+            } else {
 
-            AlertDialog.Builder(this)
-                .setTitle("Resultado: " + resultado)
-                .setPositiveButton("Ok") { _, _ ->
+                val peso: Float = pesoStr.toFloat()
+                val altura: Float = alturaStr.toFloat()
 
-                }
-                .show()
+                val altura2 =  altura * altura
+                val resultado = peso / altura2
+
+
+                AlertDialog.Builder(this)
+                    .setTitle("Resultado: " + resultado)
+                    .setPositiveButton("Ok") { _, _ ->
+
+                    }
+                    .show()
+            }
+
         }
     }
 }
