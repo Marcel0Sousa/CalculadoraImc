@@ -1,12 +1,12 @@
 package com.comunidadedevspace.imc
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
-import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
+
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,13 +35,9 @@ class MainActivity : AppCompatActivity() {
                 val altura2 =  altura * altura
                 val resultado = peso / altura2
 
-
-                AlertDialog.Builder(this)
-                    .setTitle("Resultado: " + resultado)
-                    .setPositiveButton("Ok") { _, _ ->
-
-                    }
-                    .show()
+                val intent = Intent(this, ResultActivity::class.java)
+                intent.putExtra(KEY_RESULT_IMC, resultado)
+                startActivity(intent)
             }
 
         }
