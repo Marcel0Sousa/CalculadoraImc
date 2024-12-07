@@ -4,23 +4,66 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="8dp"
     tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/vg_head"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:background="@drawable/gradient_bg"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_margin="24dp"
+            android:src="@drawable/ic_monitor_weight"
+            app:tint="@color/white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:text="Calculador IMC"
+            android:textColor="@color/white"
+            android:textSize="24dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="24dp"
+            android:text="Preencha os campos com seu peso e altura para calcular seu índice de massa corporal"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textLayout1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        app:hintEnabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/vg_head">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edt_peso"
-            android:inputType="numberDecimal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/txt_peso" />
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/rounded_edit_text_bg"
+            android:drawableRight="@drawable/ic_monitor_weight"
+            android:hint="@string/txt_peso"
+            android:inputType="numberDecimal"
+            android:maxLength="6" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -29,16 +72,22 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="20dp"
+        app:hintEnabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textLayout1">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edt_altura"
-            android:inputType="numberDecimal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/txt_altura" />
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/rounded_edit_text_bg"
+            android:drawableRight="@drawable/ic_height"
+            android:hint="@string/txt_altura"
+            android:inputType="numberDecimal"
+            android:maxLength="4" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -46,11 +95,14 @@
         android:id="@+id/btn_calcular"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="20dp"
-        android:background="#673AB7"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/rounded_button_bg"
         android:text="Calcular"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        app:layout_constraintTop_toBottomOf="@id/textLayout2" />
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
